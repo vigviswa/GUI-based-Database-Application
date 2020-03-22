@@ -1,0 +1,10 @@
+sqlalchemy
+loguru
+Flask
+Flask-SQLAlchemy
+Flask-MySQLdb
+Flask-WTF
+wtforms
+WTForms-Components
+pandas
+gunicorn

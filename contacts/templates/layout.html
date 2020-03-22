@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Contacts</title>
+    {% endif %}
+    <meta name="description" content="CS6360 Project">
+    <meta name="author" content="Vignesh Viswanathan">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    {% include "head.html" %}
+</head>
+<body class="site">
+{% include "header.html" %}
+<div class="center-me">{% block content %}{% endblock %}</div>
+<div class="site-content"></div>
+{% include "footer.html" %}
+</body>
+</html>

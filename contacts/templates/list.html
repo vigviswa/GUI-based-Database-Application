@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form method="POST">
+        {{ form.search_string }}
+        {{ form.submit }}
+    </form>
+    {% if contacts %}
+        {% for contact in contacts %}
+            <a href="/edit/{{ contact.contact_id }}">
+                {{ contact.contact_id }}
+                {{ contact }}
+            </a>
+        {% endfor %}
+    {% else %}
+        <div class="Box Box--spacious col-6 mx-auto text-center">
+            <div class="blankslate">
+                <h3 class="mb-1">You don’t seem to have any contacts.</h3>
+                <p>Add Addresses, Phones, and Important Dates of your Contacts.</p>
+                <a href="/add">
+                    <button class="btn btn-primary my-3" type="button">Add Contact</button>
+                </a>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

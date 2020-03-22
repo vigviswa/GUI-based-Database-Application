@@ -1,0 +1,26 @@
+.site {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.center-me {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.site-content {
+    display: flex;
+    flex: 1;
+}
+
+.footer {
+    padding: 10px;
+    text-align: center;
+    background-color: #f7f7f7;
+}
