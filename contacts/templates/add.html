@@ -1,114 +1,129 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h2>Add Contact</h2><br/>
-    <div class="Box Box--spacious col-6 mx-auto text-center">
-        <form method="POST">
-            {{ form.fname.label }}: {{ form.fname }}
-            {{ form.mname.label }}: {{ form.mname }}
-            {{ form.lname.label }}: {{ form.lname }}
+<h2>Add Contact</h2><br/>
+<div class="Box Box--spacious col-7 mx-auto text-center bg-yellow-light mb-2">
+    <form method="POST">
+        <br/>
+        {{ form.fname.label }}: {{ form.fname }}
+        {{ form.mname.label }}: {{ form.mname }}
+        {{ form.lname.label }}: {{ form.lname }}
 
-            <div data-toggle="fieldset" id="phone-fieldset">
-                {{ form.phones.label }}
-                <button type="button" data-toggle="fieldset-add-row"
-                        data-target="#phone-fieldset">+
-                </button>
-                <table>
-                    <tr>
-                        <th>Type of Number</th>
-                        <th>Area Code</th>
-                        <th>Number</th>
-                        <th></th>
-                    </tr>
-                    {% for phone in form.phones %}
-                        <tr data-toggle="fieldset-entry">
-                            <td>{{ phone.phone_type }}</td>
-                            <td>{{ phone.area_code }}</td>
-                            <td>{{ phone.number }}</td>
-                            <td>
-                                <button type="button" data-toggle="fieldset-remove-row"
-                                        id="phone-{{ loop.index0 }}-remove">
-                                    -
-                                </button>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </table>
-            </div>
+        <div data-toggle="fieldset" id="phone-fieldset">
+            <i class="fas fa-phone"></i> {{ form.phones.label }}
+            <button data-target="#phone-fieldset" data-toggle="fieldset-add-row"
+                    type="button">+
+            </button>
+            <br/>
+            <table style="margin: auto">
+                <tr>
+                    <th>Type of Number</th>
+                    <th>Area Code</th>
+                    <th>Number</th>
+                    <th></th>
+                </tr>
+                {% for phone in form.phones %}
+                <tr data-toggle="fieldset-entry">
+                    <td>{{ phone.phone_type }}</td>
+                    <td>{{ phone.area_code }}</td>
+                    <td>{{ phone.number }}</td>
+                    <td>
+                        <button data-toggle="fieldset-remove-row" id="phone-{{ loop.index0 }}-remove"
+                                type="button">
+                            -
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <br/>
+        </div>
 
-            <div data-toggle="fieldset" id="date-fieldset">
-                {{ form.dates.label }}
-                <button type="button" data-toggle="fieldset-add-row"
-                        data-target="#date-fieldset">+
-                </button>
-                <table>
-                    <tr>
-                        <th>Type of Date</th>
-                        <th>Calendar Date</th>
-                        <th></th>
-                    </tr>
-                    {% for date in form.dates %}
-                        <tr data-toggle="fieldset-entry">
-                            <td>{{ date.date_type }}</td>
-                            <td>{{ date.date }}</td>
-                            <td>
-                                <button type="button" data-toggle="fieldset-remove-row"
-                                        id="date-{{ loop.index0 }}-remove">
-                                    -
-                                </button>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </table>
-            </div>
+        <div data-toggle="fieldset" id="date-fieldset">
+            <i class="fas fa-calendar-day"></i> {{ form.dates.label }}
+            <button data-target="#date-fieldset" data-toggle="fieldset-add-row"
+                    type="button">+
+            </button>
+            <table style="margin: auto">
+                <br/>
+                <tr>
+                    <th>Type of Date</th>
+                    <th>Calendar Date</th>
+                    <th></th>
+                </tr>
+                {% for date in form.dates %}
+                <tr data-toggle="fieldset-entry">
+                    <td>{{ date.date_type }}</td>
+                    <td>{{ date.date }}</td>
+                    <td>
+                        <button data-toggle="fieldset-remove-row" id="date-{{ loop.index0 }}-remove"
+                                type="button">
+                            -
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <br/>
+        </div>
 
-            <div data-toggle="fieldset" id="address-fieldset">
-                {{ form.addresses.label }}
-                <button type="button" data-toggle="fieldset-add-row"
-                        data-target="#address-fieldset">+
-                </button>
-                <table>
-                    <tr>
-                        <th>Type of Address</th>
-                        <th>Street Address</th>
-                        <th>City</th>
-                        <th>State</th>
-                        <th>Zip Code</th>
-                        <th></th>
-                    </tr>
-                    {% for address in form.addresses %}
-                        <tr data-toggle="fieldset-entry">
-                            <td>{{ address.address_type }}</td>
-                            <td>{{ address.address }}</td>
-                            <td>{{ address.city }}</td>
-                            <td>{{ address.state }}</td>
-                            <td>{{ address.zip }}</td>
-                            <td>
-                                <button type="button" data-toggle="fieldset-remove-row"
-                                        id="address-{{ loop.index0 }}-remove">
-                                    -
-                                </button>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </table>
-            </div>
-            {{ form.hidden_tag() }}
-            {{ form.submit }}
+        <div data-toggle="fieldset" id="address-fieldset">
+            <i class="fas fa-home"></i> {{ form.addresses.label }}
+            <button data-target="#address-fieldset" data-toggle="fieldset-add-row"
+                    type="button">+
+            </button>
+            <table style="margin: auto">
+                <br/>
+                <tr>
+                    <th>Type of Address</th>
+                    <th>Street Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip Code</th>
+                    <th></th>
+                </tr>
+                {% for address in form.addresses %}
+                <tr data-toggle="fieldset-entry">
+                    <td>{{ address.address_type }}</td>
+                    <td>{{ address.address }}</td>
+                    <td>{{ address.city }}</td>
+                    <td>{{ address.state }}</td>
+                    <td>{{ address.zip }}</td>
+                    <td>
+                        <button data-toggle="fieldset-remove-row" id="address-{{ loop.index0 }}-remove"
+                                type="button">
+                            -
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <br/>
+        </div>
+        {{ form.hidden_tag() }}
+        {{ form.submit }}
 
-            <!-- just to display all potential errors -->
-            {% if form.errors %}
-                <div class="errors">
-                    {% for field_name, field_errors in form.errors|dictsort if field_errors %}
-                        {% for error in field_errors %}
-                            <p>{{ form[field_name].label }}: {{ error }}</p>
-                        {% endfor %}
-                    {% endfor %}
-                </div>
-            {% endif %}
+        <!-- just to display all potential errors -->
+        {% if form.errors %}
+        <div class="errors">
+            {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+            {% for error in field_errors %}
+            <p>{{ form[field_name].label }}: {{ error }}</p>
+            {% endfor %}
+            {% endfor %}
+        </div>
+        {% endif %}
 
-        </form>
-    </div>
+    </form>
+</div>
 
-    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-    <script src="{{ url_for("static", filename="js/dynamic.js") }}"></script>
+<button class="btn btn-primary" type="button">
+
+    <a href="/" style="text-decoration: None;color: azure">
+        Home Page
+    </a>
+
+</button>
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script src="{{ url_for('static', filename='js/dynamic.js')}}"></script>
+
 {% endblock %}

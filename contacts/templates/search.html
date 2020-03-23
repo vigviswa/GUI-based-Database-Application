@@ -1,20 +1,36 @@
 {% extends "layout.html" %}
 {% block content %}
-    {% if contacts %}
+{% if count %}
+
+<div class="Box Box--spacious col-6 mx-auto text-center bg-green-light mb-2">
+    <h1 class="Box-title bg-yellow-light">{{count}} Contact(s) Matched for "{{search_string}}"</h1>
+    <ul>
+
         {% for contact in contacts %}
-            <a href="/view/{{ contact.contact_id }}">
-            {{ contact }}
-            </a>
+        <li class="Box-row Box-row--hover-blue"><a href="/edit/{{ contact.contact_id }}" style="text-decoration: None">
+            {{ contact.fname }}
+            {{ contact.lname }}</a>
+        </li>
         {% endfor %}
-    {% else %}
-        <div class="Box Box--spacious col-6 mx-auto text-center">
-            <div class="blankslate">
-                <h3 class="mb-1">You don’t seem to have any contacts.</h3>
-                <p>Add Addresses, Phones, and Important Dates of your Contacts.</p>
-                <a href="/add">
-                    <button class="btn btn-primary my-3" type="button">Add Contact</button>
-                </a>
-            </div>
-        </div>
-    {% endif %}
+    </ul>
+    <button class="btn btn-primary" type="button">
+
+        <a href="/" style="text-decoration: None;color: azure">
+            Home Page
+        </a>
+
+    </button>
+</div>
+
+{% else %}
+<div class="Box Box--spacious col-6 mx-auto text-center">
+    <div class="blankslate">
+        <h3 class="mb-1">No contacts match your search "{{search_string}}"</h3>
+        <p>Add Addresses, Phones, and Important Dates of your Contacts.</p>
+        <a href="/add">
+            <button class="btn btn-primary my-3" type="button">Add Contact</button>
+        </a>
+    </div>
+</div>
+{% endif %}
 {% endblock %}
