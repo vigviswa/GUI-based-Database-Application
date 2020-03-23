@@ -1,10 +1,11 @@
+from flask import Blueprint, render_template, redirect
 from loguru import logger
-from flask import Blueprint, render_template, redirect, request
+
 from . import db
-from .models import Contact, Phone, Address, Date
 from .forms import SearchForm, AddContactForm
-from .utils import db_add_contact, db_upd_contact
+from .models import Contact, Phone, Address, Date
 from .search import db_search
+from .utils import db_add_contact, db_upd_contact
 
 contact = Blueprint("contact", __name__)
 
@@ -21,10 +22,11 @@ def list_contact():
 
 @contact.route("/search/<search_string>")
 def search_contact(search_string):
-    contacts = []
+    contacts = None
     if search_string != "":
         contacts = db_search(search_string)
-    return render_template("search.html", contacts=contacts)
+        count = contacts.count()
+    return render_template("search.html", contacts=contacts, count=count, search_string=search_string)
 
 
 @contact.route("/view/<int:contact_id>")
@@ -32,7 +34,7 @@ def view_contact(contact_id):
     return render_template("view.html", contact_id=contact_id)
 
 
-@contact.route("/delete/<int:contact_id>")
+@contact.route("/delete/<int:contact_id>", methods=["GET", "POST"])
 def del_contact(contact_id):
     form_contact = Contact.query.filter_by(contact_id=contact_id).first_or_404()
     db.session.delete(form_contact)
@@ -116,4 +118,4 @@ def edit_contact(contact_id):
             form.dates.data,
         )
         return redirect("/")
-    return render_template("edit.html", form=form)
+    return render_template("edit.html", form=form, contact_id=contact_id)
