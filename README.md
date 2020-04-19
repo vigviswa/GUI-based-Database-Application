@@ -59,3 +59,8 @@ Kindly Try out the app by adding/deleting/editing created contacts.
 In the Edit contact page, If the date/address/phone field has only one row listed and you were to delete it, Kindly add a new row, by clicking the '+' and then delete the original row.
 
 Feel free to contact me if any issue arises during running the app.
+
+## Contact
+If you loved what you read here and feel like we can collaborate to produce some exciting stuff, or if you
+just want to shoot a question, please feel free to connect with me on 
+<a href="https://www.linkedin.com/in/vigviswa/" target="_blank">LinkedIn</a>
