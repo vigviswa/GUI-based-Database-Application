@@ -1,4 +1,4 @@
-# CS6360 Programming Assignment
+# Contacts
 
 Technologies and Tools Used:
 
