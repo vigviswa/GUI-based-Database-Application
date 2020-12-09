@@ -18,7 +18,9 @@ The repository is named: GUI Based Database Application
 
 After downloading, go to the directory where the file is downloaded and setup the environment and packages by using the command:
 
-'pip install -r requirements.txt'
+```
+pip install -r requirements.txt
+```
 
 Also to note that the environment variables used in the project are:
 
@@ -50,7 +52,7 @@ The Delete Contact function is integrated with the edit contact and the button t
 
 About the App:
 
-The App can work as a general purpose contact listing application such as 'https://contacts.google.com/'
+The App can work as a general purpose contact listing application such as `https://contacts.google.com/`
 
 Hence, I haven't populated the Database with data provided on the contacts.csv. However, If required, during demo, I can use the MYSQL Workbench to populate the Application with contacts as required.
 
