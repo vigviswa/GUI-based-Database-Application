@@ -13,7 +13,7 @@ Technologies and Tools Used:
 Setup:
 
 Download the zip provided on eLearning to get all the files involved in the project.
-Also, the same files can be obtained from my GitHub repository : [here](https://github.com/vigviswa/GUI-based-Database-Application)
+Also, the same files can be obtained from my GitHub repository: [here](https://github.com/vigviswa/GUI-based-Database-Application)
 The repository is named: `GUI Based Database Application`
 
 After downloading, go to the directory where the file is downloaded and setup the environment and packages by using the command:
@@ -30,14 +30,7 @@ MYSQL_USER=contacts-user;
 MYSQL_PASSWORD=cs6360;
 MYSQL_DB=dev_contacts`
 
-I have created the Key and User credentials using google cloud to connect my native app to a mysql engine
-
-The app can be run locally on the machine or can be accessed anywhere using the deployed app created through google cloud
-
-App URL: 'https://cs6360-vxv190028-contacts.appspot.com/'
-
-
-Process:
+### Process:
 
 1) Run the main.py to deploy the Flask app on a local server. The app is configured to run at port 5000.
 
@@ -51,7 +44,7 @@ Process:
 
 6) The Delete Contact function is integrated with the edit contact and the button to delete contact can be listed when you click on the contact to edit it.
 
-About the App:
+### About the App:
 
 The App can work as a general purpose contact listing application such as [Google Contacts](https://contacts.google.com/)
 
@@ -61,6 +54,6 @@ In the Edit contact page, If the date/address/phone field has only one row liste
 
 Feel free to contact me if any issue arises during running the app.
 
-## Contact
+### Contact
 If you loved what you read here and feel like we can collaborate to produce some exciting stuff, or if you
 just want to shoot a question, please feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/vigviswa/)
